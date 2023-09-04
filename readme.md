@@ -11,5 +11,6 @@ Ver classe AltetaController.java.
 
 Estrutura do projeto em Model, View e Controller.
 
+Conexão básica com banco de dados para persistência de dados.
 
 
