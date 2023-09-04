@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atletas Cadastrados</title>
+</head>
+<body>
+    <h1>Lista de compras</h1>
+    <a href="/atletas/cadastro">Novo</a><br>
+    <table class="table table-sm">
+    <thead>
+        <tr>
+            <th scope="col">NOME</th>
+            <th scope="col">IDADE</th>
+            <th scope="col">PESO</th>
+            <th scope="col">ALTURA</th>
+            <th scope="col">IMC</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="atleta : ${lista}">
+            <td th:text="${atleta.getNome()}"></td>
+            <td th:text="${atleta.getIdade()}"></td>
+            <td th:text="${atleta.getPeso()}"></td>
+            <td th:text="${atleta.getAltura()}"></td>
+            <td th:text="${atleta.calcIMC()}"></td>    
+        </tr>
+    </tbody>
+    </table>
+
+    
+</body>
+</html>
