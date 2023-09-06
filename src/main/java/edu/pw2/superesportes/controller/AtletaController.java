@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import edu.pw2.superesportes.model.atleta.Atleta;
 import edu.pw2.superesportes.model.atleta.AtletaDados;
 import edu.pw2.superesportes.model.atleta.AtletaRepository;
+import jakarta.transaction.Transactional;
 
 @Controller
 @RequestMapping("/atletas")
@@ -31,11 +32,11 @@ public class AtletaController {
 
 
     @PostMapping("/cadastro")
-    public String registrarAtleta(AtletaDados dados, Model model){
+    @Transactional
+    public String registrarAtleta(AtletaDados dados){
         Atleta a1 = new Atleta(dados);
         repository.save(a1);
-        model.addAttribute("atleta", a1);
-        return "atleta/exibir";
+        return "redirect:/atletas";
     }
   
 }
