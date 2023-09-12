@@ -30,12 +30,12 @@ public class AtletaController {
     }
 
 
-    @PostMapping("/cadastro")
+    @PostMapping
     public String registrarAtleta(AtletaDados dados, Model model){
         Atleta a1 = new Atleta(dados);
         repository.save(a1);
         model.addAttribute("atleta", a1);
-        return "atleta/exibir";
+        return "redirect:/atletas";
     }
   
 }
