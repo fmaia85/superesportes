@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br"
+      xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,12 @@
     <table class="table table-sm">
     <thead>
         <tr>
-            <th scope="col">NOME</th>
-            <th scope="col">IDADE</th>
-            <th scope="col">PESO</th>
-            <th scope="col">ALTURA</th>
-            <th scope="col">IMC</th>
+            <th>NOME</th>
+            <th>IDADE</th>
+            <th>PESO</th>
+            <th>ALTURA</th>
+            <th>IMC</th>
+            <th>AÇÕES</th>
         </tr>
     </thead>
     <tbody>
@@ -24,7 +26,16 @@
             <td th:text="${atleta.getIdade()}"></td>
             <td th:text="${atleta.getPeso()}"></td>
             <td th:text="${atleta.getAltura()}"></td>
-            <td th:text="${atleta.calcIMC()}"></td>    
+            <td th:text="${atleta.calcIMC()}"></td>
+            <td>
+                <form action="\atletas" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="id" th:value="${atleta.getId()}">
+                    <input type="submit" value="Deletar">
+                </form>
+
+                <a th:href="@{/atletas/cadastro?id={id}(id=${atleta.getId()})}">Editar</a>
+            </td>
         </tr>
     </tbody>
     </table>

@@ -34,12 +34,27 @@ public class Atleta {
         this.altura = dados.altura();
     }
 
+    public void atualizaAtleta(AtletaUpdateDados dados){
+        this.nome = dados.nome();
+        this.idade = dados.idade();
+        this.peso = dados.peso();
+        this.altura = dados.altura();
+    }
+
     public Double calcIMC(){
         Double imc = null;
         if(this.peso != null && this.altura != null){
             imc = this.peso/(this.altura*this.altura);
         }
         return imc;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
