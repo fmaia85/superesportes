@@ -22,8 +22,9 @@ public class UsuarioController {
         return "usuario/cadastro";
     }
 
-    @PostMapping("salvar")
+
     @Transactional
+    @PostMapping("salvar")
     public String guardarUsuario(NovoUsuarioDados dados){
         System.out.println("Salvando os " + dados);
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

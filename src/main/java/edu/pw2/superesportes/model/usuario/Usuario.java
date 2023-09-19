@@ -35,6 +35,8 @@ public class Usuario {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.nomeCompleto = "";
+        this.role = "user";
     }
 
     public Long getId() {
